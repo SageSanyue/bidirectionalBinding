@@ -73,9 +73,9 @@ class Compile {
     compileText (node, exp) {
         var self = this
         var initText = this.vm[exp]
-        this.updateText(node, initText) // 将初始化的数据初始化到视图中
+        this.textUpdater(node, initText) // 将初始化的数据初始化到视图中
         new Watcher(this.vm, exp, function(value) { // 生成订阅器并绑定更新函数
-            self.updateText(node, value)
+            self.textUpdater(node, value)
         })
     }
     compileEvent (node, vm, exp, dir) {
@@ -102,7 +102,7 @@ class Compile {
             val = newValue
         })
     }
-    updateText (node, value) {
+    textUpdater (node, value) {
         node.textContent = typeof value === 'undefined' ? '' : value
     }
     modelUpdater (node, value) {
