@@ -115,9 +115,9 @@ class Compile {
         return dir.indexOf('on:') === 0
     }
     isElementNode (node) {
-        return node.nodeType === 1
+        return node.nodeType === 1 // 元素节点
     }
     isTextNode (node) {
-        return node.nodeType === 3
+        return node.nodeType === 3 // 文字
     }
 }
